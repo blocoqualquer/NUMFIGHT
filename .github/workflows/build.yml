@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: make
+        shell: sh
       - uses: actions/upload-artifact@v4
         with:
           name: NUMFIGHT
