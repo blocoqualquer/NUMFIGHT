@@ -8,8 +8,12 @@ jobs:
     container: ps2dev/ps2dev:latest
     steps:
       - uses: actions/checkout@v4
-      - run: make
+      - name: Compilar
         shell: sh
+        run: |
+          apk add --no-cache make
+          export PATH="$PATH:$PS2DEV/bin:$PS2DEV/ee/bin"
+          make
       - uses: actions/upload-artifact@v4
         with:
           name: NUMFIGHT
